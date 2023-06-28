@@ -1,0 +1,82 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Function Ware | Brookhaven", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionLibrary", IntroText = "Function Ware | Brookhaven"})
+OrionLib:MakeNotification({
+	Name = "Hey you!",
+	Content = "I hope you enjoy Function Hub!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+-- Tabs
+
+local PlrTab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local MscTab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local CrdTab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+-- Tabs Conterner
+
+-- Player
+
+PlrTab:AddButton({
+	Name = "Speed Hack (reset to disable)",
+	Callback = function()
+		_G.WS = "50"; -- Enter speed here
+                local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+                Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+                Humanoid.WalkSpeed = _G.WS;
+                end)
+                Humanoid.WalkSpeed = _G.WS;
+
+	end    
+})
+PlrTab:AddButton({
+	Name = "Jump Hack (reset to disable)",
+	Callback = function()
+	_G.JP = "100"; -- Enter speed here
+                local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+                Humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+                Humanoid.JumpPower = _G.JP;
+                end)
+                Humanoid.JumpPower = _G.JP;
+	end    
+})
+PlrTab:AddButton({
+	Name = "Spinbot (reset to disable)",
+	Callback = function()
+		local speed = 180
+
+local plr = game:GetService("Players").LocalPlayer
+repeat task.wait() until plr.Character
+local humRoot = plr.Character:WaitForChild("HumanoidRootPart")
+plr.Character:WaitForChild("Humanoid").AutoRotate = false
+local velocity = Instance.new("AngularVelocity")
+velocity.Attachment0 = humRoot:WaitForChild("RootAttachment")
+velocity.MaxTorque = math.huge
+velocity.AngularVelocity = Vector3.new(0, speed, 0)
+velocity.Parent = humRoot
+velocity.Name = "Spinbot" 
+	end    
+})
+PlrTab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+-- Misc
+
+MscTab:AddLabel("Coming soon")
+
+-- Credits
+
+CrdTab:AddLabel("p00ntkidd#1648")
