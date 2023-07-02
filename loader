@@ -1,0 +1,3 @@
+if game.PlaceId == 4924922222 then -- Brookhaven
+     loadstring(game:HttpGet(('https://raw.githubusercontent.com/fonctiono/functionwaare/main/brookhaven/source'),true))()   
+end
